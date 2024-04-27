@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import NavbarLinks from "./NavbarLinks";
 import { useEffect, useState } from "react";
-let thems = {
-  light: "light",
-  dark: "dark",
-};
+
 let localStrog = () => {
   return localStorage.getItem("theme")
     ? localStorage.getItem("theme")
@@ -29,7 +26,7 @@ function Novabar() {
     <ul className="navbar bg-base-300 maw-w-5xl mx-auto px-8 ">
       <li className="navbar-start  ">
         <div className="btn hidden lg:flex ">
-          <Link className="btn btn-ghost bg  ">MyMarket</Link>
+          <Link className="  ">MyMarket</Link>
         </div>
 
         <div className="dropdown lg:hidden">
