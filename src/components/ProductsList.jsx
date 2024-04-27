@@ -13,7 +13,7 @@ function ProductsList({ data }) {
                     <img
                       src={texnika.thumbnail}
                       alt="Shoes"
-                      className=" w-full h-52 object-cover"
+                      className=" w-full h-52 object-contain"
                     />
                   </figure>
                   <div className="card-body">
@@ -22,7 +22,7 @@ function ProductsList({ data }) {
                       {/* <div className="badge badge-secondary">NEW</div> */}
                     </h2>
                     <p className=" line-clamp-3">{texnika.description}</p>
-                    <ul className="card-actions justify-between">
+                    <ul className="card-actions justify-between flex-wrap">
                       <li className="badge badge-outline p-5">
                         Price: {texnika.price}$
                       </li>

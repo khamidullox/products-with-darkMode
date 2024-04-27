@@ -26,7 +26,7 @@ function Novabar() {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
   return (
-    <ul className="navbar bg-base-300 maw-w-5xl mx-auto px-16 ">
+    <ul className="navbar bg-base-300 maw-w-5xl mx-auto px-8 ">
       <li className="navbar-start  ">
         <div className="btn hidden lg:flex ">
           <Link className="btn btn-ghost bg  ">MyMarket</Link>
