@@ -10,7 +10,7 @@ function SingleProduct() {
   return (
     <>
       {data && (
-        <div className=" mx-auto px-16 mt-10">
+        <div className=" mx-auto px-16 mt-10 flex items-center flex-col">
           <ul className="carousel carousel-center p-4 space-x-4 bg-neutral rounded-box ">
             {data.images.map((img) => {
               return (
