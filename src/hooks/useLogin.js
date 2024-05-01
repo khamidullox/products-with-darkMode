@@ -17,10 +17,6 @@ function useLogin() {
       signInWithEmailAndPassword(auth, actionData.email, actionData.password)
         .then((userCredential) => {
           const user = userCredential.user;
-          // updateProfile(auth.currentUser, {
-          //   displayName: actionData.name,
-          //   photoURL: actionData.url,
-          // });
           dispetch({ type: "LOG_IN", paylod: user });
         })
         .catch((error) => {
