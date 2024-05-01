@@ -8,7 +8,7 @@ function useLogin() {
   useEffect(() => {
     if (actionData) {
       handleLogin()
-    }})
+    }} , [actionData])
   let handleLogin = () => {
     const auth = getAuth();
     if (actionData) {
