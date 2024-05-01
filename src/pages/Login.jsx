@@ -1,43 +1,41 @@
-import { BiLogoGoogle } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
-import auth from "../firebase/frirebaseConfing";
-//context
-import { useContext } from "react";
-import { GlobalContext } from "../context/useGlobal";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { BiLogoGoogle } from "react-icons/bi";
+import { Form } from "react-router-dom";
+import InputSingup from "../components/InputSingup";
+import { useActionData } from "react-router-dom";
+import { useEffect } from "react";
+import useLogin from "../hooks/useLogin";
+export let action = async ({ request }) => {
+  let formData = await request.formData();
+  let email = formData.get("email");
+  let password = formData.get("password");
+  return { password, email };
+};
 
 function Login() {
-  let { dispetch } = useContext(GlobalContext);
-  const provider = new GoogleAuthProvider();
-  let hadlesingup = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        dispetch({ type: "LOG_IN", paylod: user });
-        console.log(user);
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-  };
-
+  let { handleLogin } = useLogin();
+  let actionData = useActionData();
+  useEffect(() => {
+    console.log(actionData);
+  }, [actionData]);
   return (
-    <div className="place-content-center grid min-h-screen  ">
-      <button onClick={hadlesingup} type="button" className="btn btn-success">
-        <BiLogoGoogle /> Login
-      </button>
+    <div className="place-content-center grid min-h-screen ">
+      <div className=" p-10 pt-4  bg-slate-50  rounded-2xl">
+        <Form method="post">
+          <InputSingup label="Email" name="email" type="email" />
+          <InputSingup label="password" name="password" type="password" />
+          <button
+            onClick={handleLogin}
+            className="btn btn-accent w-full mb-3 mt-3"
+          >
+            Login
+          </button>
+        </Form>
+        <Link to="/singup" type="button" className="btn btn-success w-full">
+          <BiLogoGoogle />
+          Singup
+        </Link>
+      </div>
     </div>
   );
 }

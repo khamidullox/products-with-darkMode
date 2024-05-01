@@ -18,9 +18,11 @@ import Login from "./pages/Login";
 import Singup from "./pages/Singup";
 //componetns
 import ProtectotRoots from "./components/ProtectotRoots";
+import { action as SingupAction } from "./pages/Singup";
+import { action as LoginAction } from "./pages/Login";
 export default function App() {
   let { user } = useContext(GlobalContext);
-  console.log(user);
+
   let router = createBrowserRouter([
     {
       path: "/",
@@ -51,10 +53,12 @@ export default function App() {
     {
       path: "/singup",
       element: user ? <Navigate to="/" /> : <Singup />,
+      action: SingupAction,
     },
     {
       path: "/login",
       element: user ? <Navigate to="/" /> : <Login />,
+      action: LoginAction,
     },
   ]);
 

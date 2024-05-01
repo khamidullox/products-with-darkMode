@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import NavbarLinks from "./NavbarLinks";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 //context
 import { GlobalContext } from "../context/useGlobal";
@@ -14,6 +15,10 @@ let localStrog = () => {
 function Novabar() {
   let [theme, setTheme] = useState(localStrog());
   let { dispetch, user } = useContext(GlobalContext);
+
+  // if (localStrog.user) {
+  //   let { dispetch, user } = useContext(GlobalContext);
+  // }
 
   const darkMode = (e) => {
     if (e.target.checked) {
@@ -32,6 +37,10 @@ function Novabar() {
     dispetch({
       type: "LOG_OUT",
       pylod: null,
+    });
+
+    toast("Good Job!", {
+      icon: "👏",
     });
   };
 
@@ -58,7 +67,7 @@ function Novabar() {
         <NavbarLinks />
       </ul>
       <li className="navbar-end ">
-        <h2 className=" mr-5 flex flex-col">
+        <h2 className=" mr-5 flex-col lg:flex hidden">
           <span>{user.displayName}</span>{" "}
           <span className=" text-sm"> Email : {user.email}</span>
         </h2>

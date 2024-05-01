@@ -12,8 +12,8 @@ function About() {
         </figure>
         <div className="card-body items-center text-center">
           <h1>{user.displayName}</h1>
-          <span className=" text-sm"> Email : {user.email}</span>
-          <p></p>
+          <span className=" text-sm lg:flex hidden"> Email : {user.email}</span>
+
           <div className="card-actions"></div>
         </div>
       </div>
