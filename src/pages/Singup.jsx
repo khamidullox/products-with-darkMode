@@ -16,9 +16,7 @@ export let action = async ({ request }) => {
 function Singup() {
   let { hadlesingup, registWithEmailAndPassword } = useSingup();
   let actionData = useActionData();
-  useEffect(() => {
-    console.log(actionData);
-  }, [actionData]);
+
   return (
     <div className="place-content-center grid min-h-screen ">
       <div className=" p-10  bg-slate-50  rounded-2xl">

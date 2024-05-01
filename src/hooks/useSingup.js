@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import toast from "react-hot-toast";
 import { useActionData } from "react-router-dom";
@@ -26,7 +27,6 @@ function useSingup() {
         const user = result.user;
         dispetch({ type: "LOG_IN", paylod: user });
         toast.success("Welcome");
-        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -46,12 +46,17 @@ function useSingup() {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          updateProfile(auth.currentUser, {
+            displayName: actionData.name,
+            photoURL: actionData.url,
+          });
+
           dispetch({ type: "LOG_IN", paylod: user });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage);
+          toast.error(errorMessage);
 
           // ..
         });

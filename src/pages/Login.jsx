@@ -15,9 +15,7 @@ export let action = async ({ request }) => {
 function Login() {
   let { handleLogin } = useLogin();
   let actionData = useActionData();
-  useEffect(() => {
-    console.log(actionData);
-  }, [actionData]);
+
   return (
     <div className="place-content-center grid min-h-screen ">
       <div className=" p-10 pt-4  bg-slate-50  rounded-2xl">

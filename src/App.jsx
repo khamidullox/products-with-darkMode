@@ -22,6 +22,7 @@ import { action as SingupAction } from "./pages/Singup";
 import { action as LoginAction } from "./pages/Login";
 export default function App() {
   let { user } = useContext(GlobalContext);
+  localStorage.getItem(user) ? JSON.parse(localStorage.getItem(user)) : null;
 
   let router = createBrowserRouter([
     {
