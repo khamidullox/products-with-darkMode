@@ -50,7 +50,7 @@ function useSingup() {
             displayName: actionData.name,
             photoURL: actionData.url,
           });
-console.log(displayName)
+
           dispetch({ type: "LOG_IN", paylod: user });
         })
         .catch((error) => {
