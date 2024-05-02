@@ -17,6 +17,7 @@ function useLogin() {
       signInWithEmailAndPassword(auth, actionData.email, actionData.password)
         .then((userCredential) => {
           const user = userCredential.user;
+
           dispetch({ type: "LOG_IN", paylod: user });
         })
         .catch((error) => {
