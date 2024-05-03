@@ -18,7 +18,7 @@ function Login() {
 
   return (
     <div className="place-content-center grid min-h-screen ">
-      <div className=" p-10 pt-4  bg-slate-50  rounded-2xl">
+      <div className=" p-10 pt-4  bg-slate-50  rounded-2xl w-96">
         <Form method="post">
           <InputSingup label="Email" name="email" type="email" />
           <InputSingup label="password" name="password" type="password" />

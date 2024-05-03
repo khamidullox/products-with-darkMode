@@ -18,8 +18,8 @@ function Singup() {
   let actionData = useActionData();
 
   return (
-    <div className="place-content-center grid min-h-screen ">
-      <div className=" p-10  bg-slate-50  rounded-2xl">
+    <div className="place-content-center grid min-h-screen   ">
+      <div className=" p-10  bg-slate-50  rounded-2xl w-96">
         <Form method="post" className=" mb-3">
           <InputSingup label="Dispaley Name" name="dispalyName" type="text" />
           <InputSingup label="Email" name="email" type="email" />
